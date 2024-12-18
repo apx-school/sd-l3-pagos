@@ -1,0 +1,25 @@
+{
+  "name": "sd-l3-pagos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "load-env": "dotenvx run --env-file=.env.local --",
+    "dev": "npm run load-env -- npx tsx --watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.10.2",
+    "express": "^4.21.2",
+    "mercadopago": "^2.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@dotenvx/dotenvx": "^1.31.0"
+  }
+}

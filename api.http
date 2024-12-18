@@ -1,0 +1,25 @@
+# Este archivo funciona gracias a
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+@base_url = http://localhost:3001
+
+
+### Iniciar pago
+GET {{base_url}}/checkout/1234
+content-type: application/json
+
+### Mercado Pago Webhook - Pago Creado
+POST {{base_url}}/mp/webhook
+content-type: application/json
+
+{
+  "action": "payment.created",
+  "api_version": "v1",
+  "data": {
+    "id": "1320643250"
+  },
+  "date_created": "2024-12-18T22:44:45Z",
+  "id": 117901263830,
+  "live_mode": false,
+  "type": "payment",
+  "user_id": "2228698"
+}
