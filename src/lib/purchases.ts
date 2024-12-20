@@ -5,6 +5,7 @@ export async function createPurchase({ productId, userId }) {
 
   return {
     id: "64ac28bc-2365-4fd0-95ba-b4f053756cd9",
+    status: "pending",
   };
 }
 

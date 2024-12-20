@@ -17,6 +17,9 @@ app.get("/", (req, res) => {
 });
 
 // también podría ser /checkout/:productId/:priceId
+// en el caso de que tengamos varios precios por producto
+// (con descuento, sin descuento, etc)
+
 app.get("/checkout/:productId", async (req, res) => {
   const user = await getSessionUserByRequest(req);
   const product = await getProductById(req.params.productId);

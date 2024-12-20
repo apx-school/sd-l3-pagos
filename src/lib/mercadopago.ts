@@ -19,6 +19,11 @@ type CreatePrefOptions = {
   transactionId: string;
 };
 
+// recibimos data más generica en esta función
+// para abstraer al resto del sistema
+// de los detalles de mercado pago
+// esto nos permitirá hacer cambios dentro de esta librería
+// sin tener que modificar el resto del sistema
 export async function createSingleProductPreference(
   options: CreatePrefOptions
 ) {
