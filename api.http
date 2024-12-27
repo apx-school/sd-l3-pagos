@@ -7,6 +7,10 @@
 GET {{base_url}}/checkout/1234
 content-type: application/json
 
+{
+  "id":1234
+}
+
 ### Mercado Pago Webhook - Pago Creado
 POST {{base_url}}/mp/webhook
 content-type: application/json

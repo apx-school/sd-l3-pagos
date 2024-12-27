@@ -1,5 +1,10 @@
 // Step 1: Import the parts of the module you want to use
-import { MercadoPagoConfig, Payment, Preference } from "mercadopago";
+import {
+  MercadoPagoConfig,
+  Payment,
+  Preference,
+  MerchantOrder,
+} from "mercadopago";
 
 // Step 2: Initialize the client object
 const client = new MercadoPagoConfig({
@@ -47,7 +52,7 @@ export async function createSingleProductPreference(
       },
       // URL de redirección en los distintos casos
       back_urls: {
-        success: "https://test.com/success",
+        success: "https://apx.school/",
         failure: "https://test.com/failure",
         pending: "https://test.com/pending",
       },
@@ -61,6 +66,12 @@ export async function createSingleProductPreference(
 export async function getPaymentById(id: string) {
   const payment = new Payment(client);
   return payment.get({ id });
+}
+
+export async function getPrefByOrderId(id: number) {
+  const order = new MerchantOrder(client);
+  const result = await order.get({ merchantOrderId: id });
+  return pref.get({ preferenceId: result.preference_id });
 }
 
 export type WebhokPayload = {

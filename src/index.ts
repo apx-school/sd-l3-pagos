@@ -5,8 +5,8 @@ import {
   WebhokPayload,
 } from "./lib/mercadopago";
 import { getProductById } from "./lib/products";
-import { getSessionUserByRequest } from "./lib/session";
 import { confirmPurchase, createPurchase } from "./lib/purchases";
+import { getSessionUserByRequest } from "./lib/session";
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -48,6 +48,7 @@ app.post("/mp/webhook", async (req, res) => {
   const payload = req.body as WebhokPayload;
   if (payload.type === "payment") {
     const mpPayment = await getPaymentById(payload.data.id);
+    console.log({ mpPayment });
     if (mpPayment.status === "approved") {
       console.log(`Payment ${mpPayment.id} approved`);
       const purchaseId = mpPayment.external_reference;
